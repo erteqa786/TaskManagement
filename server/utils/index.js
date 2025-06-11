@@ -14,7 +14,6 @@ const dbConnection = async () => {
 export default dbConnection;
 
 export const createJWT = (res, userId) => {
- process.env.NODE_ENV 
   const token = jwt.sign({ userId }, process.env.JWT_SECRET, {
     expiresIn: "1d",
   });
