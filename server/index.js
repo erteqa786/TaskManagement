@@ -19,7 +19,7 @@ app.use(
     cors({
 
     //add the netlify website link here 
-      origin: ["http://localhost:3000", "http://localhost:3001"],
+      origin: ["http://localhost:3000", "http://localhost:3001", "https://task-manager-eh.netlify.app"],
       methods: ["GET", "POST", "DELETE", "PUT"],
       credentials: true,
     })
