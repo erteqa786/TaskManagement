@@ -14,15 +14,15 @@ const dbConnection = async () => {
 export default dbConnection;
 
 export const createJWT = (res, userId) => {
-  const isProduction = process.env.NODE_ENV === "production";
+ process.env.NODE_ENV 
   const token = jwt.sign({ userId }, process.env.JWT_SECRET, {
     expiresIn: "1d",
   });
 
   res.cookie("token", token, {
     httpOnly: true,
-    secure: isProduction, // ✅ true only in production
-    sameSite: isProduction ? "None" : "Lax", // ✅ None only in production
+    secure:  process.env.NODE_ENV !== "development", // ✅ true only in production
+    sameSite: "none", // ✅ None only in production
     maxAge: 1 * 24 * 60 * 60 * 1000, // 1 days
   });
 };
