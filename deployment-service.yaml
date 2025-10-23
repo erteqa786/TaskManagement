@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: fullstack
-        image: erteqa4u/taskmanagement:latest  # your combined Docker image
+        image: erteqa4u/taskmanagementazure:latest  # your combined Docker image
         ports:
         - containerPort: 3000  # frontend
         - containerPort: 5000  # backend
