@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fullstack-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fullstack-app
+  template:
+    metadata:
+      labels:
+        app: fullstack-app
+    spec:
+      containers:
+      - name: fullstack
+        image: erteqa4u/taskmanagement:latest  # your combined Docker image
+        ports:
+        - containerPort: 3000  # frontend
+        - containerPort: 5000  # backend
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fullstack-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: fullstack-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
