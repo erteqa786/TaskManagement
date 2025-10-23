@@ -15,7 +15,7 @@ import {
   useTrashTastMutation,
 } from "../../redux/slices/api/taskApiSlice";
 import ConfirmatioDialog from "../ConfirmationDialog";
-import AddSubTask from "./AddSUbTask";
+import AddSubTask from "./AddSubTask";
 import AddTask from "./AddTask";
 import TaskColor from "./TaskColor";
 import { useSelector } from "react-redux";
