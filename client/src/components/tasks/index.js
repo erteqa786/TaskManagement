@@ -1,4 +1,4 @@
-import AddSubTask from "./AddSUbTask";
+import AddSubTask from "./AddSubTask";
 import AddTask from "./AddTask";
 import BoardView from "./BoardView";
 import TaskAssets from "./TaskAssets";
