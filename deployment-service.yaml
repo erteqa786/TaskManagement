@@ -16,8 +16,12 @@ spec:
       - name: fullstack
         image: erteqa4u/taskmanagementazure:latest  # your combined Docker image
         ports:
-        - containerPort: 3000  # frontend
-        - containerPort: 5000  # backend
+        - containerPort: 5000  # backend (serves frontend)
+        env:
+        - name: NODE_ENV
+          value: "production"
+        - name: PORT
+          value: "5000"
 ---
 apiVersion: v1
 kind: Service
@@ -26,6 +30,11 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
+    app: fullstack-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
     app: fullstack-app
   ports:
     - protocol: TCP
